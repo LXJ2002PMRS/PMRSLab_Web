@@ -1,0 +1,205 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-- saved from url=(0022)http://blog.csdn.net/electroniXtar/ -->
+ 
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>火星表面撞击坑及冲沟的提取与识别</title>
+<style type="text/css">
+<!--
+body {
+	margin-top: 0px;
+	background-image: url(../bmp/background.gif);
+}
+a:link {
+	color: #FFFFFF;
+	text-decoration: none;
+}
+a:visited {
+	text-decoration: none;
+	color: #FFFFFF;
+}
+a:hover {
+	text-decoration: none;
+	color: #0066FF;
+}
+a:active {
+	text-decoration: none;
+	color: #FFFFFF;
+}
+a.nav:link {
+	color: #333333;
+	padding: 2px;}
+
+a.nav:visited {
+	color: #333333;
+	padding: 2px;
+}
+
+.AllFile:link{
+color:#FFFFFF;
+font-size: 14px;}
+.AllFile:visited{
+color:#FFFFFF;
+font-size: 14px;}
+.AllFile:hover{
+color:#FFFFFF;
+font-size: 14px;}
+.AllFile:active{
+color:#FFFFFF;
+font-size: 14px;}
+
+.STYLE9 script {
+	color: #000000;
+	background-color: #0066FF;
+}
+-->
+</style>
+<link href="../研究人员/BMP/txt.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+<!--
+.STYLE35 {
+	font-family: "新宋体";
+	font-size: xx-large;
+	color: #0099FF;
+}
+.STYLE36 {
+	font-family: "新宋体";
+	font-size: small;
+}
+.STYLE37 {
+	font-family: "新宋体";
+	font-size: larger;
+	line-height: 40px;
+}
+.STYLE38 {
+    font-family: "新宋体";
+    font-size: larger;
+    font-weight:bold;
+    line-height: 40px;
+    }
+-->
+</style>
+</head>
+
+<body>
+<table width="1100" height="860" border="0" align="center" cellspacing="3" bgcolor="#FFFFFF">
+  <tr>
+    <td><table width="950" height="132" border="0" align="center" cellspacing="0">
+      <tr>
+        <td width="594" colspan="2" valign="top" background="../bmp/webtitle.jpg" bgcolor="#F0F0F0">&nbsp; </td>
+      </tr>
+      
+      
+    </table>
+      <table width="952" height="26" border="0" align="center">
+        <tr>
+          <th height="26" background="../bmp/cnz03menubg1 .gif" scope="col"><div align="left">
+            <table width="952" border="0" class="AllFile">
+              <tr>
+                <th width="175" scope="col"><div align="left"> 
+                  <script language="JavaScript" class="data12">
+   <!--
+   tmpDate = new Date();
+   date = tmpDate.getDate();
+   month = tmpDate.getMonth() + 1 ;
+   year = tmpDate.getYear();
+   if (year < 1000) 
+     year+=1900; 
+   document.write(year + "-" + month + "-" + date + "&nbsp;");
+   
+   myArray = new Array(6);
+   myArray[0] = "星期日"
+   myArray[1] = "星期一"
+   myArray[2] = "星期二"
+   myArray[3] = "星期三"
+   myArray[4] = "星期四"
+   myArray[5] = "星期五"
+   myArray[6] = "星期六"
+   weekday = tmpDate.getDay();
+   document.write(myArray[weekday])
+   //-->
+                 </script>		</div></th>
+                <th width="98" scope="col"><div align="center"><a href="../index.html" target="_blank" class="AllFile">首页</a></div></th>
+                <th width="96" scope="col"><div align="center"><a href="../PMRS_Lab-profile.html" target="_blank" class="AllFile">研究室概况</a></div></th>
+                <th width="96" scope="col"><div align="center"><a href="../PMRS_news.html" target="_blank" class="AllFile">新闻动态</a></div></th>
+                <th width="96" scope="col"><div align="center"><a href="../PMRS_publications.html" target="_blank" class="AllFile">学术论文</a></div></th>
+                <th width="96" scope="col"><div align="center"><a href="../PMRS_projects.html" target="_blank" class="AllFile">科研项目</a></div></th>
+                <th width="96" scope="col"><div align="center"><a href="../PMRS_researcher.html" target="_blank" class="AllFile">研究人员</a></div></th>
+                <th width="96" scope="col"><div align="center"><a href="../PMRS_exhibitions.html" target="_blank" class="AllFile">成果展示</a></div></th>
+                <th width="96" scope="col">&nbsp;</th>
+              </tr>
+            </table>
+          </div></th>
+        </tr>
+      </table>      
+      <table width="952" height="600" border="1" align="center">
+        <tr>
+          <td><br>
+		  <table width="740" border="0" align="center">
+            <tr>
+              <td height="40"><div align="center">
+                <p align="center" class="STYLE35"> <strong>火星表面撞击坑及冲沟的提取与识别</strong></p>
+                </div></td>
+            </tr>
+            <tr>
+              <td><div align="center">
+                <p class="STYLE36">2015/12/22 |编辑|  </p>
+              </div></td>
+            </tr>
+          </table>
+            <table width="740" border="0" align="center">
+              <tr>
+                <td height="400" valign="top"><p align="justify" class="STYLE37">&nbsp;&nbsp;&nbsp;&nbsp; 火星撞击坑和冲沟为其表面的典型地物，提取和识别工作是进行地物分布及数据研究、变化检测的前提，是进一步揭示地质构造机理和演化的先决条件。对于火星表面的典型地物——撞击坑及冲沟，我们提出了以下自动提取方法：（1）撞击坑：采用机器学习方法基于地形数据对撞击坑进行自动识别和坑缘提取，结果表明所采用自动识别方法能够显著减少错误提取率，在表面复杂的地区仍具有较高的正确提取率；（2）冲沟：基于多种数学形态学方法，对HiRISE影像上的冲沟进行自动提取，在不同实验区的提取结果表明具有较高的提取率，提高了提取效率。 </p>
+                  <p class="STYLE37">&nbsp;</p>
+
+                  <p align="center" class="STYLE37"><img src="imgs/craters.JPG" width="800" height="473" /></p>
+                  <p align="center">撞击坑自动提取结果：左列为机器学习识别结果，右列为基于识别结果提取的坑缘</p><br/>
+
+                  <p align="center" class="STYLE37"><img src="imgs/gullies.JPG" width="715" height="942" /></p>
+                  <p align="center">冲沟自动提取结果：绿色为正确检测结果，黄色为漏检测，红色为错检测</p>
+
+
+
+
+                  <p class="STYLE37">&nbsp;</p>
+                    <p class="STYLE38"> 附相关文章：</p><br/>
+                      Di, K., W. Li, Z. Yue, Y. Sun, Y. Liu, 2014. <a href="../publications/publications/asr-lilwei.pdf" style="color: #00F">
+                          A machine learning approach to crater detection from topographic data  </a>, Advances in Space Research,54(2014):2419-2429. <br />
+                    <br>
+                      Li, W., K. Di, Z. Yue, Y. Liu, S. Sun 2015. <a href="../publications/publications/Di-et-al_December2015_doi-10.14358_PERS.81.12.913.pdf" style="color: #00F">
+                          Automated Detection of Martian Gullies from HiRISE Imagery</a>, Photogrammetric Engineering & Remote Sensing,81(12): 913-920.<br />
+
+
+               </tr>
+            </table>
+            <p>&nbsp;&nbsp;&nbsp;</p></td>
+        </tr>
+      </table>      
+      <table width="950" height="100" border="1" align="center">
+        <tr>
+          <td height="10"></td>
+        </tr>
+        <tr>
+          <td>
+          <div align="left">
+          <div style="position:relative;">
+          	<img src="imgs/bottom1.jpg" width="950" height="112" border="0" usemap="#Map" href="mailto" />
+            <div style="position:absolute;z-index:2;left:445px;top:25px">
+            	<a href="https://beian.miit.gov.cn/"><font size="2" color="yellow">备案序号：京ICP备05080539号-7</a><br /></font>
+                <font size="2" color="yellow">单位：中国科学院空天信息创新研究院行星制图与遥感实验室<br /></font>
+                <font size="2" color="yellow">地址：北京市朝阳区大屯路甲20号北<br /></font>
+                <font size="2" color="yellow">邮编：100101</font>
+            </div>
+          </div>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<map name="Map" id="Map">
+  <area shape="rect" coords="196,59,470,89" href="mailto:pmrslab@irsa.ac.cn" />
+</map>
+</body>
+</html>

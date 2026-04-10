@@ -1,0 +1,209 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-- saved from url=(0022)http://blog.csdn.net/electroniXtar/ -->
+ 
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>地图影像与IMU及里程计集成的探测车定位</title>
+<style type="text/css">
+<!--
+body {
+	margin-top: 0px;
+	background-image: url(../bmp/background.gif);
+}
+a:link {
+	color: #FFFFFF;
+	text-decoration: none;
+}
+a:visited {
+	text-decoration: none;
+	color: #FFFFFF;
+}
+a:hover {
+	text-decoration: none;
+	color: #0066FF;
+}
+a:active {
+	text-decoration: none;
+	color: #FFFFFF;
+}
+a.nav:link {
+	color: #333333;
+	padding: 2px;}
+
+a.nav:visited {
+	color: #333333;
+	padding: 2px;
+}
+
+.AllFile:link{
+color:#FFFFFF;
+font-size: 14px;}
+.AllFile:visited{
+color:#FFFFFF;
+font-size: 14px;}
+.AllFile:hover{
+color:#FFFFFF;
+font-size: 14px;}
+.AllFile:active{
+color:#FFFFFF;
+font-size: 14px;}
+
+.STYLE9 script {
+	color: #000000;
+	background-color: #0066FF;
+}
+-->
+</style>
+<link href="../研究人员/BMP/txt.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+<!--
+.STYLE35 {
+	font-family: "新宋体";
+	font-size: xx-large;
+	color: #0099FF;
+}
+.STYLE36 {
+	font-family: "新宋体";
+	font-size: small;
+}
+.STYLE37 {
+	font-family: "新宋体";
+	font-size: larger;
+	line-height: 40px;
+}
+.STYLE38 {
+    font-family: "新宋体";
+    font-size: larger;
+    font-weight:bold;
+    line-height: 40px;
+    }
+-->
+</style>
+</head>
+
+<body>
+<table width="1100" height="860" border="0" align="center" cellspacing="3" bgcolor="#FFFFFF">
+  <tr>
+    <td><table width="950" height="132" border="0" align="center" cellspacing="0">
+      <tr>
+        <td width="594" colspan="2" valign="top" background="../bmp/webtitle.jpg" bgcolor="#F0F0F0">&nbsp; </td>
+      </tr>
+      
+      
+    </table>
+      <table width="952" height="26" border="0" align="center">
+        <tr>
+          <th height="26" background="../bmp/cnz03menubg1 .gif" scope="col"><div align="left">
+            <table width="952" border="0" class="AllFile">
+              <tr>
+                <th width="175" scope="col"><div align="left"> 
+                  <script language="JavaScript" class="data12">
+   <!--
+   tmpDate = new Date();
+   date = tmpDate.getDate();
+   month = tmpDate.getMonth() + 1 ;
+   year = tmpDate.getYear();
+   if (year < 1000) 
+     year+=1900; 
+   document.write(year + "-" + month + "-" + date + "&nbsp;");
+   
+   myArray = new Array(6);
+   myArray[0] = "星期日"
+   myArray[1] = "星期一"
+   myArray[2] = "星期二"
+   myArray[3] = "星期三"
+   myArray[4] = "星期四"
+   myArray[5] = "星期五"
+   myArray[6] = "星期六"
+   weekday = tmpDate.getDay();
+   document.write(myArray[weekday])
+   //-->
+                 </script>		</div></th>
+                <th width="98" scope="col"><div align="center"><a href="../index.html" target="_blank" class="AllFile">首页</a></div></th>
+                <th width="96" scope="col"><div align="center"><a href="../PMRS_Lab-profile.html" target="_blank" class="AllFile">研究室概况</a></div></th>
+                <th width="96" scope="col"><div align="center"><a href="../PMRS_news.html" target="_blank" class="AllFile">新闻动态</a></div></th>
+                <th width="96" scope="col"><div align="center"><a href="../PMRS_publications.html" target="_blank" class="AllFile">学术论文</a></div></th>
+                <th width="96" scope="col"><div align="center"><a href="../PMRS_projects.html" target="_blank" class="AllFile">科研项目</a></div></th>
+                <th width="96" scope="col"><div align="center"><a href="../PMRS_researcher.html" target="_blank" class="AllFile">研究人员</a></div></th>
+                <th width="96" scope="col"><div align="center"><a href="../PMRS_exhibitions.html" target="_blank" class="AllFile">成果展示</a></div></th>
+                <th width="96" scope="col">&nbsp;</th>
+              </tr>
+            </table>
+          </div></th>
+        </tr>
+      </table>      
+      <table width="952" height="600" border="1" align="center">
+        <tr>
+          <td><br>
+		  <table width="740" border="0" align="center">
+            <tr>
+              <td height="40"><div align="center">
+                <p align="center" class="STYLE35"> <strong>地图影像与IMU及里程计集成的探测车定位</strong></p>
+                </div></td>
+            </tr>
+            <tr>
+              <td><div align="center">
+                <p class="STYLE36">2015/12/22 |编辑|  </p>
+              </div></td>
+            </tr>
+          </table>
+            <table width="740" border="0" align="center">
+              <tr>
+                <td height="400" valign="top">
+                <p align="justify" class="STYLE37"> 1.	序列影像与IMU及里程计集成定位</p>
+                <p align="justify" class="STYLE37">&nbsp;&nbsp;&nbsp;&nbsp; 行星表面巡视探测中，探测车依靠IMU和里程计组合的航迹推算能够获取连续稳定的定位结果，然后行驶过程中的车轮打滑以及IMU长时间工作带来的偏移严重影响了定位精度。基于视觉测程的定位方法不受地形起伏影响，误差累积相比较航迹推算来的小，但在贫纹理区定位稳定性不强。因而，本研究立体影像、IMU和里程计组合导航系统，通过扩展卡尔曼滤波实现数据的融合，使得探测车能够获取比单独采用航迹推算或视觉测程都高的定位精度，并在视觉测程失败的情况下依然能够稳健地获取连续定位结果。实验结果表明，组合导航系统定位精度优于单独使用航迹推算或视觉测程的精度，为0.468%。</p>
+                <p class="STYLE37">&nbsp;&nbsp;&nbsp;&nbsp; 该方法能获取稳健的定位结果，可为我国未来月面巡视探测提供技术支持。</p>                  
+                <p align="center" class="STYLE37"><img src="imgs/chezuobiao.jpg" width="480" height="600" /></p>
+                <p align="center">实验平台及坐标系定义</p><br/>
+                <p align="center" class="STYLE37"><img src="imgs/cheflow.jpg" width="680" height="300" /></p>
+                <p align="center">基于光束法平差视觉测程的探测车定位流程图</p><br/>
+                <p align="center" class="STYLE37"><img src="imgs/xuliematch.jpg" width="680" height="260" /></p>
+                <p align="center">序列立体像对间的匹配</p><br/>
+                <p align="center" class="STYLE37"><img src="imgs/xuliezhuizong.jpg" width="680" height="260" /></p>
+                <p align="center">序列立体图像前后帧间的追踪</p><br/>
+                <p align="center" class="STYLE37"><img src="imgs/tracks3.png" width="700" height="300" /></p>
+                <p align="center">左：航迹推算定位结果（7.29%）；中：序列立体影像视觉测程定位结果（1.915%）；右：序列影像与IMU及里程计的集成定位结果（0.468%）</p><br/>
+
+                <p align="justify" class="STYLE37"> 2.	探测车站间视觉定位</p>
+                <p class="STYLE37">&nbsp;&nbsp;&nbsp;&nbsp; 嫦娥三号任务中，玉兔号月球车执行的是“一步一动”的行驶模式，行驶过程中并不获取序列立体影像，因而此类情况下无法利用基于序列立体影像的视觉测程定位方法来提高定位精度。为了改正航迹推算的误差，月球车每行驶10 m左右在导航点停止并利用导航相机拍摄月表立体图像，相邻站点间获取的图像保持一定的重叠，通过站点间重叠的立体图像的特征点匹配实现月球车站点间的视觉定位。该方法在利用无线电测控、航迹推算等初始定位结果的基础上，确定站间影像的重叠区域，采用Affine-SIFT方法得到前一站同当前站图像间匹配点，以前一站位置姿态为真值，通过站间平差确定当前站的位置姿态。方法流程如下：</p>                  
+                <p align="center" class="STYLE37"><img src="imgs/zhanjian.jpg" width="780" height="380" /></p>
+                <p align="center">探测车站间视觉定位示意图</p><br/>
+                <p align="center" class="STYLE37"><img src="imgs/linzhan.jpg" width="600" height="600" /></p>
+                <p align="center">月球车相邻站点图像特征匹配与追踪</p><br/>
+ 
+                  <p class="STYLE38"> 附相关文章：</p><br/>
+                万文辉,2012. 基于立体视觉的深空探测车自主定位理论与方法研究,中国科学院研究生院博士学位论文.</br>  
+
+               </tr>
+            </table>
+            <p>&nbsp;&nbsp;&nbsp;</p></td>
+        </tr>
+      </table>      
+      <table width="950" height="100" border="1" align="center">
+        <tr>
+          <td height="10"></td>
+        </tr>
+        <tr>
+          <td>
+          <div align="left">
+          <div style="position:relative;">
+          	<img src="imgs/bottom1.jpg" width="950" height="112" border="0" usemap="#Map" href="mailto" />
+            <div style="position:absolute;z-index:2;left:445px;top:25px">
+            	<a href="https://beian.miit.gov.cn/"><font size="2" color="yellow">备案序号：京ICP备05080539号-7</a><br /></font>
+                <font size="2" color="yellow">单位：中国科学院空天信息创新研究院行星制图与遥感实验室<br /></font>
+                <font size="2" color="yellow">地址：北京市朝阳区大屯路甲20号北<br /></font>
+                <font size="2" color="yellow">邮编：100101</font>
+            </div>
+          </div>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<map name="Map" id="Map">
+  <area shape="rect" coords="196,59,470,89" href="mailto:pmrslab@irsa.ac.cn" />
+</map>
+</body>
+</html>
